@@ -9,5 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="loginPurple">#2929a3</color>
     <color name="backgroundDark">#0d0d0d</color>
-    <color name="soringOrange">#ff3300</color>
+    <color name="soringOrange">#dc5f1f</color>
+    <color name="headerBlue">#00acf6</color>
+    <color name="healthyGreen">#008905</color>
+    <color name="sunlightYellow">#cf9f01</color>
+    <color name="bloodlustRed">#c42d3c</color>
 </resources>
