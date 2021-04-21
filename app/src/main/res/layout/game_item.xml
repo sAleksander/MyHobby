@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="2sp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardPurple"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:background="@color/soringOrange"
+            android:id="@+id/gameIconDisplay"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:padding="5sp"
+            app:srcCompat="@drawable/ic_game"
+            />
+
+        <TextView
+            android:textColor="@color/white"
+            android:id="@+id/nameDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:paddingLeft="5sp"
+            android:textSize="20sp"
+            android:text="Game" />
+
+        <ImageView
+            android:id="@+id/favStatus"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            app:srcCompat="@drawable/ic_fav"
+            android:padding="5sp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

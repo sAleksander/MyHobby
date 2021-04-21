@@ -7,11 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="cardPurple">#2929a3</color>
     <color name="loginPurple">#2929a3</color>
-    <color name="backgroundDark">#0d0d0d</color>
+    <color name="backgroundDark">#2a045b</color>
     <color name="soringOrange">#dc5f1f</color>
     <color name="headerBlue">#00acf6</color>
     <color name="healthyGreen">#008905</color>
     <color name="sunlightYellow">#cf9f01</color>
     <color name="bloodlustRed">#c42d3c</color>
+    <color name="hintGrey">#dbdbd9</color>
 </resources>
