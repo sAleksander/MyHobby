@@ -20,7 +20,7 @@
             android:paddingLeft="5sp"
             android:textColorHint="@color/hintGrey"
             android:textColor="@color/white"
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/searchForNameInput"
             android:layout_width="wrap_content"
             android:textSize="25sp"
             android:layout_height="match_parent"
@@ -32,7 +32,7 @@
             android:text="" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/acceptSearchButton"
             android:layout_width="70sp"
             android:layout_height="70sp"
             android:background="@color/headerBlue"
@@ -41,17 +41,16 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_margin="2sp"
-        tools:listitem="@layout/game_item"
-        android:id="@+id/recyclerCourseList"
+        android:id="@+id/gamesRecycler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="2sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/game_item" />
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -63,7 +62,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/allGamesButton"
             android:backgroundTint="@color/soringOrange"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,7 +71,7 @@
             android:text="All" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/playedGamesButton"
             android:backgroundTint="@color/cardPurple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -81,7 +80,7 @@
             android:text="Played" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/unPlayedGamesButton"
             android:backgroundTint="@color/cardPurple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

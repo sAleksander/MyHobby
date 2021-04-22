@@ -40,7 +40,7 @@
             android:id="@+id/favStatus"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            app:srcCompat="@drawable/ic_fav"
+            app:srcCompat="@drawable/ic_not_fav"
             android:padding="5sp" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
