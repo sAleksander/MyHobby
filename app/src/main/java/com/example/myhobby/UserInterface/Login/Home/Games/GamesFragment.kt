@@ -11,6 +11,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myhobby.R
@@ -30,13 +31,17 @@ class GamesFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_games, container, false)
         val searchInput: EditText = root.findViewById(R.id.searchForNameInput)
         val acceptSearch: ImageView = root.findViewById(R.id.acceptSearchButton)
+        val addGameButton: ImageView = root.findViewById(R.id.addGameButton)
         val allButton: Button = root.findViewById(R.id.allGamesButton)
         val playedButton: Button = root.findViewById(R.id.playedGamesButton)
         val unplayedButton: Button = root.findViewById(R.id.unPlayedGamesButton)
         var status = 0
+        val innerClick = {position: Int ->
+            findNavController().navigate(R.id.action_gamesFragment_to_gameDetailsFragment)
+        }
 
         myLayoutManager = LinearLayoutManager(context)
-        myAdapter = AdapterGamesList(viewModel.gamesList, null)
+        myAdapter = AdapterGamesList(viewModel.gamesList,innerClick)
 
         viewModel.gamesList.observe(viewLifecycleOwner, Observer {
             myAdapter.notifyDataSetChanged()
@@ -66,6 +71,9 @@ class GamesFragment : Fragment() {
             allButton.backgroundTintList = context?.resources?.getColorStateList(R.color.cardPurple)
             playedButton.backgroundTintList = context?.resources?.getColorStateList(R.color.cardPurple)
             unplayedButton.backgroundTintList = context?.resources?.getColorStateList(R.color.soringOrange)
+        }
+        addGameButton.setOnClickListener {
+            findNavController().navigate(R.id.action_gamesFragment_to_gameDetailsFragment)
         }
 
         return root

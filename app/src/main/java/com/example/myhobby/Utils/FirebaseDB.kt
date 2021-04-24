@@ -20,6 +20,7 @@ object FirebaseDB {
             gameEntryProps.publisher,
             gameEntryProps.released,
             gameEntryProps.description,
+            gameEntryProps.icon,
             gameEntryProps.played,
             gameId
         )

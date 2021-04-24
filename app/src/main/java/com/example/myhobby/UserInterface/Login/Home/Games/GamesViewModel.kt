@@ -31,6 +31,7 @@ class GamesViewModel : ViewModel() {
                             game.child("publisher").getValue<String>() ?: "",
                             game.child("released").getValue<String>() ?: "",
                             game.child("description").getValue<String>() ?: "",
+                            game.child("icon").getValue<String>() ?: "",
                             game.child("played").getValue<Boolean>() ?: false,
                             game.child("id").getValue<String>() ?: "",
                         )

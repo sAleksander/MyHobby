@@ -34,7 +34,8 @@ class HomeFragment : Fragment() {
                     "Call of duty: Tiannamen",
                     "Activision",
                     "04.05.2001",
-                    "Kinda worst shooter"
+                    "Kinda worst shooter",
+                    ""
                 )
             )
             FirebaseDB.addGame(
@@ -42,7 +43,8 @@ class HomeFragment : Fragment() {
                     "Zelda of Legend",
                     "Nintendo",
                     "04.05.1999",
-                    "meh RPG game"
+                    "meh RPG game",
+                    ""
                 )
             )
             FirebaseDB.addGame(
@@ -50,7 +52,8 @@ class HomeFragment : Fragment() {
                     "Grand give mercedes 7",
                     "WaterSun",
                     "04.05.1899",
-                    "Astonishing gta game"
+                    "Astonishing gta game",
+                    ""
                 )
             )
             FirebaseDB.addGame(
@@ -58,7 +61,8 @@ class HomeFragment : Fragment() {
                     "Portal 3",
                     "Valve",
                     "04.05.2033",
-                    "best portal game"
+                    "best portal game",
+                    ""
                 )
             )
             FirebaseDB.addGame(
@@ -66,7 +70,8 @@ class HomeFragment : Fragment() {
                     "Half Life 3",
                     "Valve",
                     "04.05.3027",
-                    "Best half life so far"
+                    "Best half life so far",
+                    ""
                 )
             )
 

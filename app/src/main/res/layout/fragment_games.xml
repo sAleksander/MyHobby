@@ -35,8 +35,17 @@
             android:id="@+id/acceptSearchButton"
             android:layout_width="70sp"
             android:layout_height="70sp"
+            android:padding="10sp"
             android:background="@color/headerBlue"
             android:src="@drawable/ic_search" />
+
+        <ImageView
+            android:id="@+id/addGameButton"
+            android:layout_width="70sp"
+            android:layout_height="70sp"
+            android:padding="10sp"
+            android:background="@color/addViolet"
+            android:src="@drawable/ic_plus" />
 
     </LinearLayout>
 

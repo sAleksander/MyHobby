@@ -7,6 +7,7 @@ data class gameEntry(
     val publisher: String,
     val released: String,
     val description: String,
+    val icon: String,
     val played: Boolean = false,
     val id: String,
 )
@@ -16,5 +17,6 @@ data class gameEntryProps(
     val publisher: String,
     val released: String,
     val description: String,
+    val icon: String,
     val played: Boolean = false,
 )
