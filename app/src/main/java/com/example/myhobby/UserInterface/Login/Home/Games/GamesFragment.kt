@@ -36,12 +36,12 @@ class GamesFragment : Fragment() {
         val playedButton: Button = root.findViewById(R.id.playedGamesButton)
         val unplayedButton: Button = root.findViewById(R.id.unPlayedGamesButton)
         var status = 0
-        val innerClick = {position: Int ->
+        val innerClick = {  ->
             findNavController().navigate(R.id.action_gamesFragment_to_gameDetailsFragment)
         }
 
         myLayoutManager = LinearLayoutManager(context)
-        myAdapter = AdapterGamesList(viewModel.gamesList,innerClick)
+        myAdapter = AdapterGamesList(viewModel.gamesList, innerClick)
 
         viewModel.gamesList.observe(viewLifecycleOwner, Observer {
             myAdapter.notifyDataSetChanged()
@@ -73,7 +73,7 @@ class GamesFragment : Fragment() {
             unplayedButton.backgroundTintList = context?.resources?.getColorStateList(R.color.soringOrange)
         }
         addGameButton.setOnClickListener {
-            findNavController().navigate(R.id.action_gamesFragment_to_gameDetailsFragment)
+            //findNavController().navigate(R.id.action_gamesFragment_to_gameDetailsFragment)
         }
 
         return root

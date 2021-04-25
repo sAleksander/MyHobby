@@ -12,10 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myhobby.Database.gameEntry
 import com.example.myhobby.R
+import com.example.myhobby.Utils.GameGuardian
 
 class AdapterGamesList(
     var gamesList: LiveData<List<gameEntry>>,
-    private val onClick: ((position: Int) -> Unit),
+    private val onClick: (() -> Unit),
 ) : RecyclerView.Adapter<AdapterGamesList.GameViewHolder>() {
     inner class GameViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textView: TextView = itemView.findViewById(R.id.nameDisplay)
@@ -23,9 +24,12 @@ class AdapterGamesList(
         val icon: ImageView = itemView.findViewById(R.id.gameIconDisplay)
 
         init {
-           itemView.setOnClickListener {
-               onClick(position)
-           }
+            itemView.setOnClickListener {
+                if (!gamesList.value.isNullOrEmpty()) {
+                    GameGuardian.game = gamesList.value!!.get(adapterPosition)
+                    onClick()
+                }
+            }
         }
     }
 
@@ -46,8 +50,7 @@ class AdapterGamesList(
                 Glide.with(holder.icon.context)
                     .load(currentItem.icon)
                     .into(holder.icon)
-            }
-            else holder.icon.setImageResource(R.drawable.ic_game)
+            } else holder.icon.setImageResource(R.drawable.ic_game)
         }
     }
 

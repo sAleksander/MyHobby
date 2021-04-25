@@ -5,56 +5,61 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.example.myhobby.R
+import com.example.myhobby.UserInterface.Login.Home.Games.GamesViewModel
+import com.example.myhobby.Utils.GameGuardian
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [GameDetailsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class GameDetailsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var viewModel: GameDetailsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_game_details, container, false)
-    }
+        viewModel = ViewModelProvider(this).get(GameDetailsViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_game_details, container, false)
+        val gameIcon: ImageView = root.findViewById(R.id.gameIconDisplay)
+        val editGame: ImageView = root.findViewById(R.id.editGameButton)
+        val likeGame: ImageView = root.findViewById(R.id.likeGameButton)
+        val name: TextView = root.findViewById(R.id.nameDisplay)
+        val publisher: TextView = root.findViewById(R.id.publisherDisplay)
+        val release: TextView = root.findViewById(R.id.releaseDisplay)
+        val description: TextView = root.findViewById(R.id.descriptionDisplay)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment GameDetailsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            GameDetailsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        if (GameGuardian.game?.icon?.isNotBlank()!!) {
+            Glide.with(gameIcon)
+                .load(GameGuardian.game?.icon)
+                .into(gameIcon)
+        } else {
+            gameIcon.setImageResource(R.drawable.ic_game)
+        }
+
+        name.setText(GameGuardian.game!!.name)
+        publisher.setText("by ${GameGuardian.game!!.publisher}")
+        release.setText(GameGuardian.game!!.released)
+        description.setText(GameGuardian.game!!.description)
+
+        if (GameGuardian.game?.played == true) {
+            likeGame.setImageResource(R.drawable.ic_fav)
+        } else {
+            likeGame.setImageResource(R.drawable.ic_not_fav)
+        }
+
+        likeGame.setOnClickListener {
+            viewModel.changeGameStatus()
+            if (GameGuardian.game?.played == true) {
+                likeGame.setImageResource(R.drawable.ic_fav)
+            } else {
+                likeGame.setImageResource(R.drawable.ic_not_fav)
             }
+        }
+
+        return root
     }
 }

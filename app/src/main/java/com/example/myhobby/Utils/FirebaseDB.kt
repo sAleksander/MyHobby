@@ -26,4 +26,11 @@ object FirebaseDB {
         )
         reference.setValue(newGameEntry)
     }
+
+    fun updateGame(game: gameEntry) {
+        val gameId = game.id
+        val reference =
+            FirebaseUtils.firebaseDatabase.getReference(GAME_TABLE).child(gameId)
+        reference.setValue(game)
+    }
 }
