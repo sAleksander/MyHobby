@@ -9,4 +9,8 @@ class GameDetailsViewModel : ViewModel() {
         GameGuardian.game!!.played = !GameGuardian.game!!.played
         FirebaseDB.updateGame(GameGuardian.game!!)
     }
+
+    fun deleteGame(){
+        GameGuardian.game?.let { FirebaseDB.deleteGame(it.id) }
+    }
 }

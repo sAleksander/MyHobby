@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.myhobby.R
 import com.example.myhobby.UserInterface.Login.Home.Games.GamesViewModel
@@ -26,7 +28,8 @@ class GameDetailsFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_game_details, container, false)
         val gameIcon: ImageView = root.findViewById(R.id.gameIconDisplay)
         val editGame: ImageView = root.findViewById(R.id.editGameButton)
-        val likeGame: ImageView = root.findViewById(R.id.likeGameButton)
+        val likeGame: ImageButton = root.findViewById(R.id.likeGameButton)
+        val deleteGame: ImageView = root.findViewById(R.id.deleteGameButton)
         val name: TextView = root.findViewById(R.id.nameDisplay)
         val publisher: TextView = root.findViewById(R.id.publisherDisplay)
         val release: TextView = root.findViewById(R.id.releaseDisplay)
@@ -58,6 +61,15 @@ class GameDetailsFragment : Fragment() {
             } else {
                 likeGame.setImageResource(R.drawable.ic_not_fav)
             }
+        }
+
+        deleteGame.setOnClickListener {
+            viewModel.deleteGame()
+            findNavController().popBackStack()
+        }
+
+        editGame.setOnClickListener {
+           findNavController().navigate(R.id.action_gameDetailsFragment_to_newEditGameFragment)
         }
 
         return root

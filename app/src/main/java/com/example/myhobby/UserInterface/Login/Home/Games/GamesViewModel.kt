@@ -48,20 +48,6 @@ class GamesViewModel : ViewModel() {
         FirebaseUtils.firebaseDatabase.getReference("games").addValueEventListener(postListener)
     }
 
-    fun getGamesByName(text: String) {
-        if (text.isBlank()) _gamesToLiveData.value = _allGamesList.value
-        else {
-            if (!_allGamesList.value.isNullOrEmpty()) {
-                var tmpGames: MutableList<gameEntry> = mutableListOf()
-                for (game in _allGamesList.value!!) {
-                    if (game.name == text) tmpGames.add(game)
-                }
-                _selectedGamesList.value = tmpGames
-                _gamesToLiveData.value = _selectedGamesList.value
-            }
-        }
-    }
-
     fun getSelectedGames(text: String = "", status: Int = 0) {
         if (text.isBlank() && status == 0) _selectedGamesList.value = _allGamesList.value
         else {
@@ -70,7 +56,7 @@ class GamesViewModel : ViewModel() {
                 if (text.isBlank()) _selectedGamesList.value = _allGamesList.value
                 else {
                     for (game in _allGamesList.value!!) {
-                        if (game.name == text) tmpGames.add(game)
+                        if (game.name.toLowerCase().contains(text.toLowerCase())) tmpGames.add(game)
                     }
                     _selectedGamesList.value = tmpGames
                 }
@@ -91,19 +77,5 @@ class GamesViewModel : ViewModel() {
     // status == 0 -> all games
     // status == 1 -> played games
     // status == 2 -> unplayed games
-
-    fun getGamesByStatus(status: Int) {
-        if (status == 0) _gamesToLiveData.value = _allGamesList.value
-        else if (status == 1 && !_allGamesList.value.isNullOrEmpty()) {
-            var tmpGames: MutableList<gameEntry> = mutableListOf()
-            for (game in _allGamesList.value!!) if (game.played) tmpGames.add(game)
-            _gamesToLiveData.value = tmpGames
-        } else if (status == 2 && !_allGamesList.value.isNullOrEmpty()) {
-            var tmpGames: MutableList<gameEntry> = mutableListOf()
-            for (game in _allGamesList.value!!) if (!game.played) tmpGames.add(game)
-            _gamesToLiveData.value = tmpGames
-        }
-    }
-
     val gamesList: LiveData<List<gameEntry>> = _gamesToLiveData
 }

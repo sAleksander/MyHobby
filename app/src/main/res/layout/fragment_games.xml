@@ -16,8 +16,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/clearSearchButton"
+            android:layout_width="50sp"
+            android:layout_height="70sp"
+            android:padding="10sp"
+            android:background="@color/headerBlue"
+            android:src="@drawable/ic_clear" />
+
         <EditText
-            android:paddingLeft="5sp"
+            android:paddingLeft="10sp"
             android:textColorHint="@color/hintGrey"
             android:textColor="@color/white"
             android:id="@+id/searchForNameInput"
@@ -30,14 +38,6 @@
             android:hint="Game"
             android:inputType="textPersonName"
             android:text="" />
-
-        <ImageView
-            android:id="@+id/acceptSearchButton"
-            android:layout_width="70sp"
-            android:layout_height="70sp"
-            android:padding="10sp"
-            android:background="@color/headerBlue"
-            android:src="@drawable/ic_search" />
 
         <ImageView
             android:id="@+id/addGameButton"

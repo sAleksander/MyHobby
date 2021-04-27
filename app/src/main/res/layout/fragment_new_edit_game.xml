@@ -28,16 +28,17 @@
         android:layout_height="wrap_content"
         android:background="@color/soringOrange"
         android:orientation="vertical"
-        android:padding="5sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/errorMessageDisplay">
 
         <TextView
+            android:id="@+id/required1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Name"
+            android:padding="5sp"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -59,13 +60,14 @@
         android:layout_height="wrap_content"
         android:background="@color/soringOrange"
         android:orientation="vertical"
-        android:padding="5sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout11">
 
         <TextView
+            android:padding="5sp"
+            android:id="@+id/required2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Publisher"
@@ -91,13 +93,14 @@
         android:layout_height="wrap_content"
         android:background="@color/soringOrange"
         android:orientation="vertical"
-        android:padding="5sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout10">
 
         <TextView
+            android:padding="5sp"
+            android:id="@+id/requiredDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Release date"
@@ -124,13 +127,13 @@
         android:layout_height="wrap_content"
         android:background="@color/soringOrange"
         android:orientation="vertical"
-        android:padding="5sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout14"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout12">
 
         <TextView
+            android:padding="5sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Icon URL (OPTIONAL)"
@@ -155,13 +158,14 @@
         android:layout_height="wrap_content"
         android:background="@color/soringOrange"
         android:orientation="vertical"
-        android:padding="5sp"
         app:layout_constraintBottom_toTopOf="@+id/operationButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout13">
 
         <TextView
+            android:padding="5sp"
+            android:id="@+id/required3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Description"

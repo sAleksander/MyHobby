@@ -33,4 +33,10 @@ object FirebaseDB {
             FirebaseUtils.firebaseDatabase.getReference(GAME_TABLE).child(gameId)
         reference.setValue(game)
     }
+
+    fun deleteGame(gameId: String) {
+        val reference =
+            FirebaseUtils.firebaseDatabase.getReference(GAME_TABLE).child(gameId)
+        reference.removeValue()
+    }
 }

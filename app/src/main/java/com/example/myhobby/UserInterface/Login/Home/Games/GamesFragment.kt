@@ -9,12 +9,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myhobby.R
+import com.example.myhobby.Utils.GameGuardian
 
 class GamesFragment : Fragment() {
 
@@ -30,7 +32,7 @@ class GamesFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(GamesViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_games, container, false)
         val searchInput: EditText = root.findViewById(R.id.searchForNameInput)
-        val acceptSearch: ImageView = root.findViewById(R.id.acceptSearchButton)
+        val clearSearch: ImageView = root.findViewById(R.id.clearSearchButton)
         val addGameButton: ImageView = root.findViewById(R.id.addGameButton)
         val allButton: Button = root.findViewById(R.id.allGamesButton)
         val playedButton: Button = root.findViewById(R.id.playedGamesButton)
@@ -40,6 +42,8 @@ class GamesFragment : Fragment() {
             findNavController().navigate(R.id.action_gamesFragment_to_gameDetailsFragment)
         }
 
+        GameGuardian.game = null
+
         myLayoutManager = LinearLayoutManager(context)
         myAdapter = AdapterGamesList(viewModel.gamesList, innerClick)
 
@@ -47,7 +51,11 @@ class GamesFragment : Fragment() {
             myAdapter.notifyDataSetChanged()
         })
 
-        acceptSearch.setOnClickListener {
+        clearSearch.setOnClickListener {
+            searchInput.setText("")
+        }
+
+        searchInput.addTextChangedListener {
             viewModel.getSelectedGames(searchInput.text.toString(),status)
         }
 
@@ -73,7 +81,7 @@ class GamesFragment : Fragment() {
             unplayedButton.backgroundTintList = context?.resources?.getColorStateList(R.color.soringOrange)
         }
         addGameButton.setOnClickListener {
-            //findNavController().navigate(R.id.action_gamesFragment_to_gameDetailsFragment)
+            findNavController().navigate(R.id.action_gamesFragment_to_newEditGameFragment)
         }
 
         return root
