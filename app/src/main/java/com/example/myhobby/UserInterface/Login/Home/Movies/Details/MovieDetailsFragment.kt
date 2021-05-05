@@ -36,6 +36,7 @@ class MovieDetailsFragment : Fragment() {
         val description: TextView = root.findViewById(R.id.descriptionDisplay)
         val duration: TextView = root.findViewById(R.id.durationDisplay)
 
+
         if (MovieGuardian.movie?.icon?.isNotBlank()!!) {
             Glide.with(movieIcon)
                 .load(MovieGuardian.movie?.icon)
@@ -45,7 +46,7 @@ class MovieDetailsFragment : Fragment() {
         }
 
         name.setText(MovieGuardian.movie!!.name)
-        director.setText(MovieGuardian.movie!!.director)
+        director.setText("by ${MovieGuardian.movie!!.director}")
         released.setText(MovieGuardian.movie!!.released)
         description.setText(MovieGuardian.movie!!.description)
         duration.setText("Duration: ${MovieGuardian.movie!!.duration}")

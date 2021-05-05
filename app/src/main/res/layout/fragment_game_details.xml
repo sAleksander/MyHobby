@@ -64,6 +64,8 @@
                 android:textSize="27sp"
                 android:textColor="@color/white"
                 android:padding="2sp"
+                android:singleLine="true"
+                android:ellipsize="none"
                 android:text="Half Life 3" />
 
             <TextView
@@ -71,6 +73,8 @@
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="none"
                 android:padding="2sp"
                 android:textSize="20sp"
                 android:text="by: Valve" />
@@ -86,6 +90,16 @@
                 android:text="19.11.1998" />
         </LinearLayout>
     </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="320sp"
+        android:layout_marginTop="10sp"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/likeGameButton"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
     <TextView
         android:id="@+id/descriptionDisplay"
@@ -95,13 +109,8 @@
         android:singleLine="false"
         android:text="a first-person shooter video game developed by Valve and published by Sierra Studios for Microsoft Windows in 1998. It was Valve's debut product and the first game in the Half-Life series."
         android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/likeGameButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
-        app:layout_constraintVertical_bias="0.0" />
+        android:textSize="20sp" />
+    </ScrollView>
 
     <ImageButton
         android:scaleType="fitCenter"
