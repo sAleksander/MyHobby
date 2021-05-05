@@ -2,33 +2,100 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/backgroundDark"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:background="@color/backgroundDark"
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:padding="15sp"
-        android:background="@color/healthyGreen"
-        android:layout_width="wrap_content"
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="horizontal"
+        android:background="@color/healthyGreen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="200sp"
-            android:layout_height="200sp"
-            android:src="@drawable/ic_movie" />
+            android:id="@+id/clearSearchButton"
+            android:layout_width="50sp"
+            android:layout_height="70sp"
+            android:padding="10sp"
+            android:background="@color/headerBlue"
+            android:src="@drawable/ic_clear" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:lines="8"
+        <EditText
+            android:paddingLeft="10sp"
+            android:textColorHint="@color/hintGrey"
             android:textColor="@color/white"
-            android:textSize="20sp"
-            android:text="We are sorry but this service is not available yet \n\n New functionality coming soon :)" />
+            android:id="@+id/searchForNameInput"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@color/white"
+            android:ems="10"
+            android:hint="Movie"
+            android:inputType="textPersonName"
+            android:text="" />
+
+        <ImageView
+            android:id="@+id/addMovieButton"
+            android:layout_width="70sp"
+            android:layout_height="70sp"
+            android:padding="10sp"
+            android:background="@color/addViolet"
+            android:src="@drawable/ic_plus" />
+
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/moviesRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="2sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/movie_item" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/allMoviesButton"
+            android:backgroundTint="@color/healthyGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="2sp"
+            android:text="All" />
+
+        <Button
+            android:id="@+id/watchedMoviesButton"
+            android:backgroundTint="@color/cardPurple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="2sp"
+            android:text="Watched" />
+
+        <Button
+            android:id="@+id/notWatchedMoviesButton"
+            android:backgroundTint="@color/cardPurple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="2sp"
+            android:text="not Seen" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

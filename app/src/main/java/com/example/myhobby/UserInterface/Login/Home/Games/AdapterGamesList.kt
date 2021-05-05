@@ -1,12 +1,10 @@
 package com.example.myhobby.UserInterface.Login.Home.Games
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.net.toUri
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -43,8 +41,8 @@ class AdapterGamesList(
         val currentItem = gamesList.value?.get(position)
         if (currentItem != null) {
             holder.textView.setText(currentItem.name.toString())
-            if (currentItem.played) holder.favStatus.setImageResource(R.drawable.ic_fav)
-            else holder.favStatus.setImageResource(R.drawable.ic_not_fav)
+            if (currentItem.played) holder.favStatus.setImageResource(R.drawable.ic_fav_game)
+            else holder.favStatus.setImageResource(R.drawable.ic_not_fav_game)
 
             if (currentItem.icon.isNotBlank()) {
                 Glide.with(holder.icon.context)

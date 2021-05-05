@@ -17,12 +17,12 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageView
-            android:background="@color/soringOrange"
-            android:id="@+id/gameIconDisplay"
+            android:background="@color/healthyGreen"
+            android:id="@+id/movieIconDisplay"
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:padding="5sp"
-            app:srcCompat="@drawable/ic_game"
+            app:srcCompat="@drawable/ic_movie"
             />
 
         <TextView
@@ -34,13 +34,22 @@
             android:layout_gravity="center"
             android:paddingLeft="5sp"
             android:textSize="20sp"
-            android:text="Game" />
+            android:text="Movie" />
+        <TextView
+            android:textColor="@color/white"
+            android:id="@+id/durationDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="5sp"
+            android:textSize="15sp"
+            android:text="0h00m" />
 
         <ImageView
             android:id="@+id/favStatus"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            app:srcCompat="@drawable/ic_not_fav_game"
+            app:srcCompat="@drawable/ic_not_fav_movie"
             android:padding="5sp" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

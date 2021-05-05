@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.myhobby.R
-import com.example.myhobby.UserInterface.Login.Home.Games.GamesViewModel
 import com.example.myhobby.Utils.GameGuardian
 
 class GameDetailsFragment : Fragment() {
@@ -49,17 +48,17 @@ class GameDetailsFragment : Fragment() {
         description.setText(GameGuardian.game!!.description)
 
         if (GameGuardian.game?.played == true) {
-            likeGame.setImageResource(R.drawable.ic_fav)
+            likeGame.setImageResource(R.drawable.ic_fav_game)
         } else {
-            likeGame.setImageResource(R.drawable.ic_not_fav)
+            likeGame.setImageResource(R.drawable.ic_not_fav_game)
         }
 
         likeGame.setOnClickListener {
             viewModel.changeGameStatus()
             if (GameGuardian.game?.played == true) {
-                likeGame.setImageResource(R.drawable.ic_fav)
+                likeGame.setImageResource(R.drawable.ic_fav_game)
             } else {
-                likeGame.setImageResource(R.drawable.ic_not_fav)
+                likeGame.setImageResource(R.drawable.ic_not_fav_game)
             }
         }
 

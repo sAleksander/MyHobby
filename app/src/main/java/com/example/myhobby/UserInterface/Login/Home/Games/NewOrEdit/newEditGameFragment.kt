@@ -65,7 +65,7 @@ class newEditGameFragment : Fragment() {
                 requiredDate.setBackgroundColor(resources.getColor(R.color.bloodlustRed))
             } else if (!releaseEntry.text.matches(Regex("\\d\\d.\\d\\d.\\d\\d\\d\\d"))) {
                 errorMessage.visibility = View.VISIBLE
-                errorMessage.setText("Wrong date format!ads")
+                errorMessage.setText("Wrong date format!")
                 requiredDate.setBackgroundColor(resources.getColor(R.color.bloodlustRed))
             }
             else{

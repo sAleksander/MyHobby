@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/moviesFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -70,6 +70,9 @@
         <action
             android:id="@+id/action_moviesFragment_to_movieDetailsFragment"
             app:destination="@id/movieDetailsFragment" />
+        <action
+            android:id="@+id/action_moviesFragment_to_newEditMovieFragment"
+            app:destination="@id/newEditMovieFragment" />
     </fragment>
     <fragment
         android:id="@+id/bookDetailsFragment"
@@ -94,10 +97,19 @@
         android:id="@+id/movieDetailsFragment"
         android:name="com.example.myhobby.UserInterface.Login.Home.Movies.Details.MovieDetailsFragment"
         android:label="fragment_movie_details"
-        tools:layout="@layout/fragment_movie_details" />
+        tools:layout="@layout/fragment_movie_details" >
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_newEditMovieFragment"
+            app:destination="@id/newEditMovieFragment" />
+    </fragment>
     <fragment
         android:id="@+id/newEditGameFragment"
         android:name="com.example.myhobby.UserInterface.Login.Home.Games.NewOrEdit.newEditGameFragment"
         android:label="fragment_new_edit_game"
         tools:layout="@layout/fragment_new_edit_game" />
+    <fragment
+        android:id="@+id/newEditMovieFragment"
+        android:name="com.example.myhobby.UserInterface.Login.Home.Movies.NewOrEdit.newEditMovieFragment"
+        android:label="fragment_new_edit_movie"
+        tools:layout="@layout/fragment_new_edit_movie" />
 </navigation>
